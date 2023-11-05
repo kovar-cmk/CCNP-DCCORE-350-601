@@ -1,187 +1,49 @@
-# CCNP-DCCORE-350-601
-these are my notes and  labs i completed for preparing for  the CCNP DCCORE 350-601 Certification exam of CISCO networking Enterprise
-This README provides a detailed description of the network configuration for the "Enterprise of LAWYER BROTHERS" network mega lab. The configuration includes various components such as WAN setup, OSPF, BGP, HSRP (Hot Standby Router Protocol), VLANs, VRF (Virtual Routing and Forwarding), and DHCP configurations. It also involves three routers interconnected in a complex network.
+# CCNP Data Center (DCCOR) Study Notes and Labs Repository
 
-## **WAN Configuration and ISP Protocols**
+Welcome to the CCNP Data Center (DCCOR) Study Notes and Labs repository! This space is dedicated to helping you prepare for the CCNP Data Center certification by providing detailed study notes and hands-on lab resources. Whether you're working towards the core exam (350-601 DCCOR) or any other CCNP Data Center exam, you'll find valuable materials here.
 
-### **Router 1**
+## About This Repository
 
-- **WAN Configuration**:
-    - Interface e0/0:
-        - IP Address: 10.10.3.1 /30
-    - Interface e0/1:
-        - IP Address: 10.10.2.1 /30
-- **OSPF Configuration**:
-    - Area 0:
-        - OSPF Process: 1
-        - Interface Range: e0/0-1
-    - Area 1:
-        - OSPF Process: 1
-        - Interface e0/2 and e0/3
+This repository is created and maintained by [Your Name], a dedicated CCNP Data Center candidate who is enthusiastic about sharing knowledge and resources with the CCNP community. Our aim is to provide structured study notes and practical labs to assist you in achieving success in your CCNP journey.
 
-### **Router 2**
+## Study Notes
 
-- **WAN Configuration**:
-    - Interface e0/1:
-        - IP Address: 10.10.2.2 /30
-    - Interface e0/2:
-        - IP Address: 1.1.2.2 /30
-    - Interface e1/1:
-        - IP Address: 1.1.3.2 /30
-- **OSPF Configuration**:
-    - OSPF Process: 1
-    - Area 0:
-        - Interfaces e0/1, e0/2, and e1/1
+In this repository, you'll find comprehensive study notes that cover a broad spectrum of CCNP Data Center topics. These notes are meticulously organized, making it easy for you to navigate the content.
 
-### **Router 3**
+The study notes include:
 
-- **WAN Configuration**:
-    - Interface e0/0:
-        - IP Address: 10.10.3.2 /30
-    - Interface e0/3:
-        - IP Address: 1.1.1.2 /30
-    - Interface e1/1:
-        - IP Address: 1.1.4.2 /30
-- **OSPF Configuration**:
-    - OSPF Process: 1
-    - Area 0:
-        - Interface e1/1
-    - Area 1:
-        - Interface e0/0
+- **CCNP Data Center Core (DCCOR)**:
+  - [Module 1: Implement Data Center Protocols](./DCCOR/Module1): Detailed notes for the first module, covering Data Center protocols and technologies.
+  - [Module 2: Implement Data Center Technologies](./DCCOR/Module2): In-depth notes for the second module, exploring various Data Center technologies and solutions.
+  - [Module 3: Implement Automation and Orchestration](./DCCOR/Module3): Study notes for the third module, focusing on automation and orchestration in the Data Center.
 
-### **ISP 1 BGP & BFD Configuration (AS 65200)**
+You are welcome to contribute your notes or suggest enhancements to help the community.
 
-- **Router 4**:
-    - Interfaces e0/0, e0/1, e0/2, e0/3, e1/0-1 with BFD
-    - BGP Configuration with neighbors from Router 1 and Router 2
-- **Router 5**:
-    - Interfaces e0/0-3, e1/1 with BFD
-    - BGP Configuration with neighbors from Router 1 and Router 3
+## Hands-On Labs
 
-### **ISP 2 Configuration**
+In addition to study notes, this repository offers a set of hands-on labs designed to reinforce your understanding of CCNP Data Center concepts. These labs are intended to provide practical experience with real-world scenarios that you may encounter in your CCNP exams.
 
-- **Vios 5 Router**:
-    - Interfaces g0/0-1 with BFD
-    - BGP Configuration with neighbors from Router 5 and Router 6
-- **Vios 6 Router**:
-    - Interfaces g0/0-1 with BFD
-    - BGP Configuration with neighbors from Router 5 and Router 6
+The lab sections include:
 
-## **Router 1 Standby Configuration**
+- **Cisco NX-OS Labs**: A series of labs for Cisco's Nexus Operating System (NX-OS), an essential technology in Data Center environments.
+- **ACI (Application Centric Infrastructure) Labs**: Hands-on exercises focused on Cisco's ACI solution, an integral part of modern Data Center architecture.
+- **Advanced Data Center Labs**: Labs designed to dive deeper into advanced Data Center concepts and technologies.
 
-- Standby Interfaces for Router 1:
-    - e0/0.1: IP 172.16.1.200
-    - e0/0.2: IP 172.16.3.200
+## How to Contribute
 
-## **Router 3 Standby Configuration**
+We encourage you to contribute your study notes, lab exercises, or improvements to this repository. Sharing your knowledge and experience is a great way to benefit the CCNP community. Please follow these guidelines for contributions:
 
-- Standby Interfaces for Router 3:
-    - e0/1.1: IP 192.168.1.200
-    - e0/2.2: IP 172.16.3.200
+1. Fork this repository to your GitHub account.
+2. Make your changes or additions to the study notes, labs, or any other relevant content.
+3. Create a pull request to merge your changes back into this repository.
+4. Your contributions will be reviewed and, if appropriate, merged into the main repository.
 
-## **VLAN Configuration**
+## Community Support
 
-### **VLAN 2:**
+Join our CCNP Data Center community to share experiences, ask questions, and seek support in your CCNP DCCOR journey. Whether you're just starting or already an experienced data center professional, there's always room for learning and growth in our community.
 
-- Configuration for VLAN 2 on switches
+## Disclaimer
 
-### **VLAN 3:**
+The study notes and labs in this repository are meant for educational purposes and self-study. Always consult official Cisco documentation and resources as your primary source for exam preparation. While we strive for accuracy, please note that this repository is not affiliated with or endorsed by Cisco Systems, Inc.
 
-- Configuration for VLAN 3 on switches
-
-### **VLAN 4:**
-
-- Configuration for VLAN 4 on switches
-
-## **Router 1 Sub-Interfaces**
-
-- Configuration for sub-interfaces on Router 1:
-    - Sub-interface e0/2.1: VLAN 2
-    - Sub-interface e0/2.2: VLAN 3
-
-## **Router 3 Sub-Interfaces**
-
-- Configuration for sub-interfaces on Router 3:
-    - Sub-interface e0/1.1: VLAN 2
-    - Sub-interface e0/1.2: VLAN 3
-    - Sub-interface e0/1.3: VLAN 4
-
-## **Router 1 HQ**
-
-### **HQ_CEO:**
-
-- Configuration for VRF, DHCP, and HSRP:
-    - VRF HQ_CEO
-    - DHCP for the HQ_CEO network
-    - HSRP Configuration for failover and redundancy
-
-### **HR_DEP:**
-
-- Configuration for VRF, DHCP, and HSRP:
-    - VRF HR_DEP
-    - DHCP for the HR_DEP network
-    - HSRP Configuration for failover and redundancy
-
-### **IT_Admin:**
-
-- Configuration for VRF, DHCP, and HSRP:
-    - VRF IT_Admin
-    - DHCP for the IT_Admin network
-    - HSRP Configuration for failover and redundancy
-
-### **Secretary:**
-
-- Configuration for VRF, DHCP, and HSRP:
-    - VRF Secretary
-    - DHCP for the Secretary network
-    - HSRP Configuration for failover and redundancy
-
-## **Router 1 Branch Office**
-
-### **Accountants:**
-
-- Configuration for VRF, DHCP, and HSRP:
-    - VRF Accountants
-    - DHCP for the Accountants network
-    - HSRP Configuration for failover and redundancy
-
-### **Lawyers:**
-
-- Configuration for VRF, DHCP, and HSRP:
-    - VRF Lawyers
-    - DHCP for the Lawyers network
-    - HSRP Configuration for failover and redundancy
-
-## **Router 2**
-
-### **Accountants:**
-
-- Configuration for VRF, DHCP, HSRP, and BGP with neighbors
-
-### **Lawyers:**
-
-- Configuration for VRF, DHCP, HSRP, and BGP with neighbors
-
-## **Router 3**
-
-### **HQ_CEO:**
-
-- Configuration for VRF, DHCP, HSRP, and BGP with neighbors
-
-### **HR_DEP:**
-
-- Configuration for VRF, DHCP, HSRP, and BGP with neighbors
-
-### **IT_Admin:**
-
-- Configuration for VRF, DHCP, HSRP, and BGP with neighbors
-
-### **Secretary:**
-
-- Configuration for VRF, DHCP, HSRP, and BGP with neighbors
-
-## **VLAN and Interface Configuration**
-
-- Additional VLAN and interface configurations for network segmentation.
-
-This README provides an in-depth understanding of the complex networking configuration for the "Enterprise of LAWYER BROTHERS" network. You can use this information as a reference when setting up or troubleshooting this network configuration.
+Best of luck in your CCNP Data Center journey! We hope this repository serves as a valuable resource on your path to certification.
